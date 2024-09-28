@@ -1,0 +1,1 @@
+# Translate_Extension_For_Edge
