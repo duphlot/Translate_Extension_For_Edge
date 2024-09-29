@@ -1,23 +1,39 @@
 {
   "manifest_version": 3,
-  "name": "Translate Selection to Vietnamese",
-  "version": "1.1",
-  "description": "Dịch tự động khi bôi đen văn bản sang tiếng Việt",
+  "name": "Translation Extension",
+  "version": "1.0",
+  "description": "Extension dịch nhanh văn bản từ tiếng Anh sang tiếng Việt khi bôi đen.",
   "permissions": [
     "activeTab",
     "scripting",
-    "tabs",
-    "http://*/*",
-    "https://*/*"
-  ],
-  "host_permissions": [
-    "http://*/*",
-    "https://*/*"
+    "storage"
   ],
   "background": {
     "service_worker": "background.js"
   },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon.png",
+      "48": "icons/icon.png",
+      "128": "icons/icon.png"
+    }
+  },
   "icons": {
-    "48": "icons/icon.png"
-  }
+    "16": "icons/icon.png",
+    "48": "icons/icon.png",
+    "128": "icons/icon.png"
+  },
+  "commands": {
+    "toggle-enable-disable": {
+      "suggested_key": {
+        "default": "Alt+X"
+      },
+      "description": "Bật/tắt chức năng dịch"
+    }
+  },
+  "host_permissions": [
+    "https://*/*",
+    "http://*/*"
+  ]
 }
