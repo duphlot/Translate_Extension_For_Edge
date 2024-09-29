@@ -1,4 +1,4 @@
-var isTranslationEnabled = true; // Mặc định là tắt
+var isTranslationEnabled = false; // Mặc định là tắt
 let eventListenerAttached = false;
 let translationDiv = null;
 // Hiển thị thông báo về trạng thái bật/tắt
