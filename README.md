@@ -26,3 +26,9 @@
 5. Chọn thư mục đã giải nén từ bước 1.
 
 6. Hoàn tất! Extension đã sẵn sàng để sử dụng.
+
+## Phím tắt
+- Alt + X để tắt / mở
+- Nếu không được thì vào phần `edge://extensions/shortcuts` để cài đặt phím tắt như hình sau :
+  ![image](https://github.com/user-attachments/assets/dffd57e4-fc6b-4dce-a8e9-b0a8a49df198)
+
