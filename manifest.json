@@ -3,6 +3,7 @@
   "name": "Translation Extension",
   "version": "1.0",
   "description": "Extension dịch nhanh văn bản từ tiếng Anh sang tiếng Việt khi bôi đen.",
+  "author": "Phan Thùy Dung",  // Thêm tác giả và ID
   "permissions": [
     "activeTab",
     "scripting",

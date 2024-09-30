@@ -1,15 +1,12 @@
 var isTranslationEnabled = false; // Mặc định là tắt
 let eventListenerAttached = false;
 let translationDiv = null;
-// Hiển thị thông báo về trạng thái bật/tắt
 function displayToggleMessage(isTranslationEnabled) {
   let messageDiv = document.getElementById('toggle-message');
   if (!messageDiv) {
     messageDiv = document.createElement('div');
     messageDiv.id = 'toggle-message';
     document.body.appendChild(messageDiv);
-
-    // Thiết lập CSS cho hộp thông báo
     messageDiv.style.position = 'fixed';
     messageDiv.style.bottom = '20px';
     messageDiv.style.right = '20px';
@@ -23,7 +20,6 @@ function displayToggleMessage(isTranslationEnabled) {
   }
 
   messageDiv.textContent = isTranslationEnabled ? "Dịch đã bật" : "Dịch đã tắt";
-  // Tự động ẩn thông báo sau 2 giây
   setTimeout(() => {
     messageDiv.remove();
   }, 2000);
@@ -37,7 +33,7 @@ function displayToggleMessage(isTranslationEnabled) {
   }
 }
 const stopActivity = () => {
-  clearInterval(myInterval); // Dừng interval
+  clearInterval(myInterval); 
 };
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.action === "stop") {
@@ -97,8 +93,6 @@ function attachSelectionListener(isTranslationEnabled) {
     translationDiv = document.createElement('div');
     translationDiv.id = 'translation-box';
     document.body.appendChild(translationDiv);
-
-    // CSS cơ bản để hộp bản dịch hiển thị đẹp mắt
     translationDiv.style.position = 'fixed';
     translationDiv.style.bottom = '10px';
     translationDiv.style.right = '10px';
@@ -124,7 +118,7 @@ function attachSelectionListener(isTranslationEnabled) {
         console.log('Bản dịch:', translatedText); // Debug
         translationDiv.textContent = `Dịch: ${translatedText}`;
       } catch (error) {
-        console.error('Lỗi khi dịch:', error); // Debug lỗi
+        console.error('Lỗi khi dịch:', error); 
         translationDiv.textContent = 'Lỗi khi dịch văn bản.';
       }
     }
