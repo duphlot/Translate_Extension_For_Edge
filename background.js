@@ -119,7 +119,7 @@ function attachSelectionListener(isTranslationEnabled) {
         translationDiv.textContent = `Dịch: ${translatedText}`;
         setTimeout(() => {
           translationDiv.remove();
-        }, translatedText.length * 50);
+        }, translatedText.length * 200);
       } catch (error) {
         console.error('Lỗi khi dịch:', error); 
         translationDiv.textContent = 'Lỗi khi dịch văn bản.';
