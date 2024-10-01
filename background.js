@@ -117,6 +117,9 @@ function attachSelectionListener(isTranslationEnabled) {
         
         console.log('Bản dịch:', translatedText); // Debug
         translationDiv.textContent = `Dịch: ${translatedText}`;
+        setTimeout(() => {
+          translationDiv.remove();
+        }, translatedText.length * 50);
       } catch (error) {
         console.error('Lỗi khi dịch:', error); 
         translationDiv.textContent = 'Lỗi khi dịch văn bản.';
