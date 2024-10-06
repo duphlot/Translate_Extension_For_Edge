@@ -1,6 +1,10 @@
 var isTranslationEnabled = false; // Mặc định là tắt
 let eventListenerAttached = false;
 let translationDiv = null;
+const checkInterval = 6000; // Thay đổi thành 3 giây hoặc nhiều hơn
+
+let myInterval = null;
+
 function displayToggleMessage(isTranslationEnabled) {
   let messageDiv = document.getElementById('toggle-message');
   if (!messageDiv) {
@@ -34,6 +38,11 @@ function displayToggleMessage(isTranslationEnabled) {
 }
 const stopActivity = () => {
   clearInterval(myInterval); 
+  myInterval = null; // Giải phóng biến interval
+  if (translationDiv) {
+    translationDiv.remove(); // Gỡ bỏ hộp dịch
+    translationDiv = null; // Giải phóng tài nguyên
+  }
 };
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.action === "stop") {
@@ -47,7 +56,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
             args: [isTranslationEnabled]
           });
         });
-      }, 1000);
+      }, checkInterval);
   }
 });
 
@@ -104,10 +113,8 @@ function attachSelectionListener(isTranslationEnabled) {
     translationDiv.style.maxWidth = '300px';
     translationDiv.style.wordWrap = 'break-word';
   }
-
   document.addEventListener('mouseup', async () => {
-    const selection = window.getSelection().toString().trim();
-    
+    const selection = window.getSelection().toString();
     if (selection.length > 0) {
       console.log('Đoạn văn bản được chọn:', selection); // Debug
       try {

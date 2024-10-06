@@ -34,6 +34,7 @@
     }
   },
   "host_permissions": [
+    "https://translate.googleapis.com/*",
     "https://*/*",
     "http://*/*"
   ]
